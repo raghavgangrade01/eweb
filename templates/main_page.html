@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>nevbar for mainpage</title>
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="main.css">
+      <!-- font awesome -->
+      <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+   </head>
+   <style>
+   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: #f2f2f2;
+}
+nav{
+  background: #4d84e2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 100px;
+}
+nav .logo{
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+nav .nav-items{
+  display: flex;
+  flex: 1;
+  padding: 0 0 0 40px;
+}
+nav .nav-items li{
+  list-style: none;
+  padding: 0 15px;
+}
+nav .nav-items li a{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .nav-items li a:hover{
+  color: #CFCFCF;
+}
+nav form{
+  width: 40%;
+  display: flex;
+  height: 45px;
+  padding: 2px;
+  background: black;
+  min-width: 18%!important;
+  border-radius: 10px;
+  border: 1px solid rgba(155,155,155,0.2);
+}
+nav form .search-data{
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 18px;
+  border:none;
+  font-weight: 500;
+  background: black;
+}
+nav form button{
+  padding: 0 20px;
+  color: #fff;
+  font-size: 17px;
+  background: gray;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+nav form button:hover{
+  background:#CFCFCF ;
+
+}
+nav .menu-icon,
+nav .cancel-icon,
+nav .search-icon{
+  width: 40px;
+  text-align: center;
+  margin: 0 50px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+nav .menu-icon span,
+nav .cancel-icon,
+nav .search-icon{
+  display: none;
+}
+@media (max-width: 1245px) {
+  nav{
+    padding: 0 50px;
+  }
+}
+@media (max-width: 1140px){
+  nav{
+    padding: 0px;
+  }
+  nav .logo{
+    flex: 2;
+    text-align: center;
+  }
+  nav .nav-items{
+    position: fixed;
+    z-index: 99;
+    top: 70px;
+    width: 100%;
+    left: -100%;
+    height: 100%;
+    padding: 10px 50px 0 50px;
+    text-align: center;
+    background: #14181f;
+    display: inline-block;
+    transition: left 0.3s ease;
+  }
+  nav .nav-items.active{
+    left: 0px;
+  }
+  nav .nav-items li{
+    line-height: 40px;
+    margin: 30px 0;
+  }
+  nav .nav-items li a{
+    font-size: 20px;
+  }
+  nav form{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0.3s ease, opacity 0.1s ease;
+  }
+  nav form.active{
+    top: 95px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav form:before{
+    position: absolute;
+    content: "";
+    top: -13px;
+    right: 0px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    border: 10px solid transparent;
+    border-bottom-color: #1e232b;
+    margin: -20px 0 0;
+  }
+  nav form:after{
+    position: absolute;
+    content: '';
+    height: 60px;
+    padding: 2px;
+    background: #1e232b;
+    border-radius: 2px;
+    min-width: calc(100% + 20px);
+    z-index: -2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  nav .menu-icon{
+    display: block;
+  }
+  nav .search-icon,
+  nav .menu-icon span{
+    display: block;
+  }
+  nav .menu-icon span.hide,
+  nav .search-icon.hide{
+    display: none;
+  }
+  nav .cancel-icon.show{
+    display: block;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.content header{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .text{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+nav .logo.space{
+  color: red;
+  padding: 0 5px 0 0;
+}
+@media (max-width: 980px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 20px;
+  }
+  nav form{
+    right: 30px;
+  }
+}
+@media (max-width: 350px){
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+    margin: 0 10px;
+    font-size: 16px;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.content header{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .text{
+  font-size: 30px;
+  font-weight: 700;
+}
+.content .space{
+  margin: 10px 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+    --white-light: rgba(255, 255, 255, 0.5);
+    --alice-blue: #f8f9fa;
+    --carribean-green: #40c9a2;
+    --gray: #ededed;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Utility stylings */
+img{
+    width: 100%;
+    display: block;
+}
+.container{
+    width: 88vw;
+    margin: 0 auto;
+}
+.lg-title,
+.md-title,
+.sm-title{
+    font-family: 'Roboto', sans-serif;
+    padding: 0.6rem 0;
+    text-transform: capitalize;
+}
+.lg-title{
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 1.3rem 0;
+    opacity: 0.9;
+}
+.md-title{
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+.sm-title{
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.text-light{
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    opacity: 0.5;
+    margin: 0.4rem 0;
+}
+
+/* product section */
+.products{
+    background: var(--alice-blue);
+    padding: 3.2rem 0;
+}
+.products .text-light{
+    text-align: center;
+    width: 70%;
+    margin: 0.9rem auto;
+}
+.product{
+    margin: 2rem;
+    position: relative;
+}
+.product-content{
+    background: var(--gray);
+    padding: 3rem 0.5rem 2rem 0.5rem;
+    cursor: pointer;
+}
+.product-img{
+    background: var(--white-light);
+    box-shadow: 0 0 20px 10px var(--white-light);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    transition: background 0.5s ease;
+}
+.product-btns{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.btn-cart, .btn-buy{
+    background: transparent;
+    border: 1px solid black;
+    padding: 0.8rem 0;
+    width: 125px;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.6s ease;
+}
+.btn-cart{
+    background: black;
+    color: white;
+}
+.btn-cart:hover{
+    background: var(--carribean-green);
+}
+.btn-buy{
+    background: white;
+}
+.btn-buy:hover{
+    background: #4d84e2;
+    color: #fff;
+}
+.product-info{
+    background: white;
+    padding: 2rem;
+}
+.product-info-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rating span{
+    color: var(--carribean-green);
+}
+.product-name{
+    color: black;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.product-price{
+    padding-top: 0.6rem;
+    padding-right: 0.6rem;
+    display: inline-block;
+}
+.product-price:first-of-type{
+    text-decoration: line-through;
+    color: black;
+}
+.product-img img{
+    transition: transform 0.6s ease;
+}
+.product:hover .product-img img{
+    transform: scale(1.1);
+}
+.product:hover .product-img{
+    background: #4d84e2;
+}
+.product:hover .product-btns{
+    opacity: 1;
+}
+.off-info .sm-title{
+    background: #4d84e2;
+    color: white;
+    display: inline-block;
+    padding: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    z-index: 1;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+/* product collection */
+.product-collection{
+    padding: 3.2rem 0;
+}
+.product-collection-wrapper{
+    padding: 3.2rem 0;
+}
+.product-col-left{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("images/fashion-img-1.jpg") center/cover no-repeat;
+}
+.product-col-r-top{
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("images/fashion-img-2.png") center/cover no-repeat;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+    padding: 2rem 1.5rem 3.2rem;
+    margin: 5px;
+}
+.product-col-r-bottom > div:first-child{
+    background: #eaa001;
+}
+.product-col-r-bottom > div:last-child{
+    background: yellow;
+}
+.product-col-content{
+    text-align: center;
+    color: white;
+}
+.product-collection .text-light{
+    opacity: 1;
+    font-size: 0.8;
+    font-weight: 400;
+    line-height: 1.7;
+}
+.btn-dark{
+    background: black;
+    color: white;
+    outline: 0;
+    border-radius: 25px;
+    padding: 0.7rem 1rem;
+    border: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.btn-dark:hover{
+    background: #4d84e2;
+}
+
+
+
+
+
+
+
+/* Media Queries */
+@media screen and (min-width: 992px){
+    .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .product-col-r-bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1200px){
+    .product-items{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .product{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .products .text-light{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1336px){
+    .product-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .product-collection-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .flex{
+        height: 60vh;
+    }
+    .product-col-left{
+        height: 121.5vh;
+    }
+}
+   </style>
+   <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <div class="logo">
+            E-commerce
+         </div>
+         <div class="nav-items">
+
+            <li><a href="/securityque">+ Security question</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="/logout">Logout</a></li>
+         </div>
+         <div class="search-icon">
+            <span class="fas fa-search"></span>
+         </div>
+         <div class="cancel-icon">
+            <span class="fas fa-times"></span>
+         </div>
+         <form action="#">
+            <input type="search" class="search-data" placeholder="Search for products..." required>
+            <button type="submit" class="fas fa-search"></button>
+         </form>
+      </nav>
+      <div class = "products">
+
+
+            <div class = "product-items">
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-1.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">mens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+
+                    <div class = "off-info">
+                        <h2 class = "sm-title">25% off</h2>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-2.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+                            <div class = "rating">
+
+                            </div>
+                        </div>
+                        <a href = "#" class = "product-name">mens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-3.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">mens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-4.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">mens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+
+                    <div class = "off-info">
+                        <h2 class = "sm-title">25% off</h2>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-5.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">womens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-6.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">womens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-7.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">womens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+                </div>
+                <!-- end of single product -->
+                <!-- single product -->
+                <div class = "product">
+                    <div class = "product-content">
+                        <div class = "product-img">
+                            <img src = "images/shoe-8.png" alt = "product image">
+                        </div>
+                        <div class = "product-btns">
+
+                            <button type = "button" class = "btn-buy"> buy now
+                                <span><i class = "fas fa-shopping-cart"></i></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class = "product-info">
+                        <div class = "product-info-top">
+                            <h2 class = "sm-title">lifestyle</h2>
+
+                        </div>
+                        <a href = "#" class = "product-name">womens shoes DN 23XX, new product</a>
+                        <p class = "product-price">$ 150.00</p>
+                        <p class = "product-price">$ 133.00</p>
+                    </div>
+
+                    <div class = "off-info">
+                        <h2 class = "sm-title">35% off</h2>
+                    </div>
+                </div>
+                <!-- end of single product -->
+            </div>
+        </div>
+    </div>
+
+    <div class = "product-collection">
+        <div class = "container">
+            <div class = "product-collection-wrapper">
+                <!-- product col left -->
+                <div class = "product-col-left flex">
+                    <div class = "product-col-content">
+                        <h2 class = "sm-title">men's shoes </h2>
+                        <h2 class = "md-title">men's collection </h2>
+                        <p class = "text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae consequatur facilis eligendi quibusdam voluptatibus exercitationem autem voluptatum, beatae architecto odit, quisquam repellat. Deleniti, architecto ab.</p>
+                        <button type = "button" class = "btn-dark">Shop now</button>
+                    </div>
+                </div>
+
+                <!-- product col right -->
+                <div class = "product-col-right">
+                    <div class = "product-col-r-top flex">
+                        <div class = "product-col-content">
+                            <h2 class = "sm-title">women's dresses </h2>
+                            <h2 class = "md-title">women's collection </h2>
+                            <p class = "text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae consequatur facilis eligendi quibusdam voluptatibus exercitationem autem voluptatum, beatae architecto odit, quisquam repellat. Deleniti, architecto ab.</p>
+                            <button type = "button" class = "btn-dark">Shop now</button>
+                        </div>
+                    </div>
+
+                    <div class = "product-col-r-bottom">
+                        <!-- left -->
+                        <div class = "flex">
+                            <div class = "product-col-content">
+                                <h2 class = "sm-title">summer sale </h2>
+                                <h2 class = "md-title">Extra 50% Off </h2>
+                                <p class = "text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae consequatur facilis eligendi quibusdam voluptatibus exercitationem autem voluptatum, beatae architecto odit, quisquam repellat. Deleniti, architecto ab.</p>
+                                <button type = "button" class = "btn-dark">Shop now</button>
+                            </div>
+                        </div>
+                        <!-- right -->
+                        <div class = "flex">
+                            <div class = "product-col-content">
+                                <h2 class = "sm-title">shoes </h2>
+                                <h2 class = "md-title">best sellers </h2>
+                                <p class = "text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae consequatur facilis eligendi quibusdam voluptatibus exercitationem autem voluptatum, beatae architecto odit, quisquam repellat. Deleniti, architecto ab.</p>
+                                <button type = "button" class = "btn-dark">Shop now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <script>
+         const menuBtn = document.querySelector(".menu-icon span");
+         const searchBtn = document.querySelector(".search-icon");
+         const cancelBtn = document.querySelector(".cancel-icon");
+         const items = document.querySelector(".nav-items");
+         const form = document.querySelector("form");
+         menuBtn.onclick = ()=>{
+           items.classList.add("active");
+           menuBtn.classList.add("hide");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+         cancelBtn.onclick = ()=>{
+           items.classList.remove("active");
+           menuBtn.classList.remove("hide");
+           searchBtn.classList.remove("hide");
+           cancelBtn.classList.remove("show");
+           form.classList.remove("active");
+           cancelBtn.style.color = "#ff3d00";
+         }
+         searchBtn.onclick = ()=>{
+           form.classList.add("active");
+           searchBtn.classList.add("hide");
+           cancelBtn.classList.add("show");
+         }
+
+      </script>
+   </body>
+</html>
